@@ -9,7 +9,7 @@
 \renewcommand{\labelitemi}{\small$\bullet$}
 
 \definecolor{accent}{HTML}{2B579A}
-\definecolor{techgray}{HTML}{333333}
+\definecolor{techgray}{HTML}{3D3D3D}
 
 \hypersetup{
     colorlinks=true,
@@ -20,17 +20,18 @@
 
 % Reusable commands for uniform formatting
 \newcommand{\employer}[3]{%
+  \vspace{6pt}%
   \textbf{#1} \hfill #2 \enspace$\mid$\enspace #3%
 }
 \newcommand{\project}[2]{%
-  \vspace{5pt}%
+  \vspace{6pt}%
   \textbf{#1}\\[1pt]%
-  {\small\textcolor{techgray}{#2}}%
+  {\footnotesize\textcolor{techgray}{#2}}%
 }
 \newcommand{\divider}{%
   \vspace{6pt}%
   \noindent\textcolor{techgray}{\rule{\linewidth}{0.3pt}}%
-  \vspace{3pt}%
+  \vspace{2pt}%
 }
 
 \name{Ramacharan Reddy Kasireddy}
@@ -57,17 +58,14 @@ AI Engineer with 2+ years of experience designing and delivering production AI s
 \begin{rSection}{Skills}
 
 \begin{tabular}{ @{} >{\bfseries}l @{\hspace{3ex}} p{15.2cm} }
-AI/ML \& LLMs & LangChain, LangGraph, MCP, RAG (hybrid k-NN + BM25), Prompt Engineering, Fine-Tuning, Multi-Agent Systems, ReAct, Tool Calling, Structured Outputs, Langfuse \\[2pt]
-NLP & Tokenization, Transformer Embeddings, Conversational AI, Semantic Search, Intent Classification, Text Generation \\[2pt]
+AI/ML \& LLMs & LangChain, LangGraph, MCP, RAG (hybrid k-NN + BM25), Prompt Engineering, Fine-Tuning, Multi-Agent Systems, ReAct, Tool Calling, Structured Outputs, Guardrails, Langfuse, LangSmith, Semantic Search, Conversational AI \\[2pt]
 LLM Platforms & Azure AI Foundry, Azure OpenAI (GPT-4, Embeddings), AWS Bedrock (Claude, Titan Embeddings), Google Gemini \\[2pt]
 Deep Learning & PyTorch, TensorFlow, Hugging Face Transformers, LoRA, PEFT, QLoRA, Quantization, Distillation \\[2pt]
 Programming & Python, SQL, JavaScript, Java, React, FastAPI, Uvicorn, Pydantic, Jinja, Playwright, pytest \\[2pt]
-Databases & PostgreSQL, Cosmos DB, MongoDB, OpenSearch, SQLAlchemy \\[2pt]
-AWS & Bedrock, OpenSearch, EKS, ECR, Lambda, SQS, S3, Transcribe, DynamoDB, CodePipeline, KMS, IAM (IRSA) \\[2pt]
-Azure & OpenAI Service, Cosmos DB, AKS, ACR, Key Vault, Blob Storage, Entra ID, Managed Identity, Logic Apps \\[2pt]
-DevOps \& Agile & Docker, Kubernetes, Helm, Terraform, Airflow, Git, GitHub Actions, Jenkins, GitLab CI/CD, Agile/Scrum \\[2pt]
-AI-Assisted Dev & GitHub Copilot, Cursor, Claude Code \\[2pt]
-APIs \& Security & RESTful APIs, OpenAPI/Swagger, OAuth 2.0, JWT, MSAL, JWKS, SSE, WebSockets \\
+Data \& APIs & PostgreSQL, Cosmos DB, OpenSearch, SQLAlchemy, RESTful APIs, OpenAPI/Swagger, OAuth 2.0, JWT, MSAL, JWKS, SSE, WebSockets \\[2pt]
+AWS & Bedrock, Bedrock Guardrails, OpenSearch, EKS, ECR, Lambda, SQS, S3, Transcribe, DynamoDB, CodePipeline, KMS, IAM (IRSA) \\[2pt]
+Azure & OpenAI Service, Cosmos DB, AKS, ACR, Key Vault, Blob Storage, Entra ID, Managed Identity, Monitor, Logic Apps \\[2pt]
+DevOps \& Tools & Docker, Kubernetes, Helm, Terraform, Airflow, Git, GitHub Actions, Jenkins, GitLab CI/CD, GitHub Copilot, Cursor, Claude Code \\
 \end{tabular}
 
 \end{rSection}
@@ -79,37 +77,51 @@ APIs \& Security & RESTful APIs, OpenAPI/Swagger, OAuth 2.0, JWT, MSAL, JWKS, SS
 
 \employer{Feuji INC}{AI Engineer}{Aug 2024 -- Present}
 
-\project{Customer Analytics AI -- PLZ Corp}{Python, FastAPI, LangGraph, Azure OpenAI, Azure AI Foundry, Cosmos DB, PostgreSQL, Terraform, React}
+\project{Customer Analytics AI -- PLZ Corp}{Python, FastAPI, LangGraph, Azure OpenAI, Azure AI Foundry, LangSmith, Cosmos DB, PostgreSQL, Terraform, React}
+\\[2pt]
+{\small\textit{PLZ needed to track customer growth, monitor industry news, and identify the best time to close deals. The client requested a static reporting dashboard -- I proposed and delivered a conversational AI platform that lets the sales team query all of that data in natural language, replacing weeks of manual research with real-time insights.}}
 \begin{itemize}
-  \item \textbf{Architected a full-stack AI analytics platform} across 4 microservices (data engine, SSO gateway, conversational agent, React SPA frontend) deployed on AKS, \textbf{eliminating 48 hours/week of manual analysis} and \textbf{saving \$150K/year} in equivalent headcount.
-  \item \textbf{Engineered an AI agent using LangGraph and Azure OpenAI} with 20 specialized tools and a 7-layer middleware stack, backed by dual-domain RAG over Cosmos DB vector search (DiskANN, 1536-dim embeddings) \textbf{grounding all responses in verified data to reduce hallucinations}, augmented by summarization and short-term memory for conversational coherence.
-  \item \textbf{Built an 8-stage async data pipeline} that ingests structured and unstructured data, transforms through a parse-chunk-embed-index workflow, and persists to a \textbf{12-table PostgreSQL warehouse} and a \textbf{Cosmos DB vector store}.
-  \item \textbf{Designed a centralized SSO gateway} using FastAPI RESTful APIs and MSAL with OAuth2 authorization code flow, Azure AD group-based access control, JWKS S2S token validation, and zero hardcoded secrets via Key Vault and Managed Identity.
-  \item \textbf{Provisioned the entire Azure environment using Terraform} across 7 modules with passwordless RBAC throughout, covering compute, data, AI, identity, storage, scheduling, and communication services.
+  \item \textbf{Architected a full-stack AI analytics platform} across 4 microservices (data engine, SSO gateway, conversational agent, React SPA) deployed on AKS, eliminating 48 hours/week of manual analysis and saving \$150K/year.
+  \item \textbf{Engineered an AI agent with LangGraph and Azure OpenAI} -- 20 specialized tools, 7-layer middleware stack, and dual-domain RAG over Cosmos DB vector search (DiskANN, 1536-dim embeddings).
+  \item \textbf{Grounded all responses in verified data} to reduce hallucinations; added summarization and short-term memory for conversational coherence.
+  \item \textbf{Built a multi-stage async data pipeline} (parse, clean, chunk, embed, index, validate, store, sync) ingesting structured and unstructured data into a 12-table PostgreSQL warehouse and a Cosmos DB vector store.
+  \item \textbf{Designed a centralized SSO gateway} with FastAPI, MSAL, OAuth2 authorization code flow, Entra ID group-based access control, JWKS S2S validation, and zero hardcoded secrets via Key Vault and Managed Identity.
+  \item \textbf{Implemented observability and cost monitoring} -- LangSmith for agent trace debugging and prompt regression testing; Azure Monitor for token-level cost tracking and content safety logging.
+  \item \textbf{Provisioned the full Azure environment with Terraform} across 7 modules with passwordless RBAC, covering compute, data, AI, identity, storage, scheduling, and communication services.
+  \item \textbf{Recognized by PLZ Corp's Director and CIO} for exceeding project expectations and delivering a platform that transformed their sales decision-making process.
 \end{itemize}
 
-\project{Ask the Prospect (ATP) -- TriNet}{Python, FastAPI, LangGraph, AWS Bedrock, OpenSearch, Aurora, Langfuse, Airflow, EKS}
+\project{Ask the Prospect (ATP) -- TriNet}{Python, FastAPI, LangGraph, AWS Bedrock, Bedrock Guardrails, OpenSearch, Aurora, Langfuse, Airflow, EKS}
+\\[2pt]
+{\small\textit{TriNet's sales reps typically take 2 years to reach full proficiency. The client asked for a searchable training knowledge base -- I expanded the scope to a multi-mode AI agent combining RAG Q\&A, persona-based role-play coaching, sales analytics, and gamified learning to compress that ramp-up across the entire sales organization.}}
 \begin{itemize}
-  \item \textbf{Built a multi-mode LangGraph agent} powering 4 capabilities -- RAG chatbot (dual-index: training docs + Gong call transcripts) with \textbf{memory continuity using short-term and long-term memory} via LangGraph PG checkpointer and store, persona-based sales role-play with AI coaching, analytics chat with text-to-OpenSearch query generation, and automated Jeopardy question generation.
-  \item \textbf{Engineered a sales analytics pipeline} where LLM enriches each Gong call transcript with derived columns (win/loss, objections, competition mentions), then serves aggregate queries by generating OpenSearch queries from natural language via text-to-schema mapping.
-  \item \textbf{Integrated Langfuse for full observability and bias detection} across all agent interactions, using \textbf{LLM-as-judge evaluations} for output quality scoring alongside trace-level debugging, latency monitoring, and cost tracking across every LLM call and tool execution in production.
-  \item \textbf{Served as solution architect and client-facing lead}, owning the end-to-end technical vision across 4 microservices and 2 Airflow-orchestrated data pipelines deployed on EKS.
+  \item \textbf{Built a multi-mode LangGraph agent} powering 4 capabilities -- RAG chatbot (dual-index: training docs + Gong transcripts), persona-based sales role-play with AI coaching, analytics chat, and automated Jeopardy question generation.
+  \item \textbf{Enabled memory continuity} via LangGraph PG checkpointer and store for short-term and long-term memory across sessions.
+  \item \textbf{Engineered a sales analytics pipeline} -- LLM enriches each Gong transcript with derived columns (win/loss, objections, competition mentions), then generates OpenSearch queries from natural language for aggregate analysis.
+  \item \textbf{Enforced PII protection with AWS Bedrock Guardrails} -- configurable filters that detect and redact sensitive data (names, emails, SSNs) in both inputs and outputs before reaching the client.
+  \item \textbf{Integrated Langfuse for observability and cost monitoring} -- LLM-as-judge evaluations for quality scoring, trace-level debugging, latency monitoring, and per-call cost tracking in production.
+  \item \textbf{Served as solution architect and client-facing lead}, owning end-to-end technical vision across 4 microservices and 2 Airflow-orchestrated data pipelines on EKS.
+  \item \textbf{Recognized by TriNet's CTO, Executive Director, and VP} for expanding scope beyond original requirements and delivering measurable impact to the sales organization.
 \end{itemize}
 
-\project{ReQon -- Automated Testing Tool}{Python, LangChain, LangGraph, Google Gemini, Playwright MCP, Aurora PostgreSQL, Docker, pytest}
+\project{ReQon -- Automated Testing Tool}{Python, LangChain, LangGraph, Google Gemini, Playwright MCP, Aurora PostgreSQL, S3, Docker, pytest}
+\\[2pt]
+{\small\textit{Feuji is a QA-heavy company where test engineers were spending the bulk of their time writing and maintaining low-level test cases. I led an internal initiative to build an AI platform that auto-discovers application structure and generates test cases and regression scripts from a single browser recording, freeing engineers to focus on high-value exploratory testing.}}
 \begin{itemize}
-  \item \textbf{Engineered a LangGraph agent with Playwright MCP} that replays a user-recorded browser flow, autonomously navigates every page multiple times, and extracts locators, identifiers, functional elements, and behavioral data -- storing the full application map in S3 and Aurora PostgreSQL.
-  \item \textbf{Automated the entire QA authoring workflow} -- from captured browser behavior the agent generates structured test cases in Aurora PG, executes them via Playwright MCP, and outputs verified pass/fail results, eliminating manual test case writing.
-  \item \textbf{Built a code generation engine} using Jinja templates that converts captured page metadata into \textbf{pytest-compatible regression scripts} with \textbf{Page Object Model classes} for every page discovered, producing a ready-to-run test suite from a single recording.
-  \item \textbf{Designed and dockerized 3 microservices} -- Recorder (Playwright codegen capture), MCP Service (AI agent, knowledge extraction, test and script generation), and Execution Service (isolated regression runner) -- saving \textbf{100+ team-hours weekly} and cutting QA costs by an estimated \textbf{\$230K/year}.
+  \item \textbf{Engineered a LangGraph agent with Playwright MCP} that replays a recorded browser flow, navigates every page, and extracts locators, functional elements, and behavioral data into S3 and Aurora PostgreSQL.
+  \item \textbf{Automated the full QA authoring workflow} -- from captured browser behavior the agent generates test cases, executes them via Playwright MCP, and outputs verified pass/fail results, eliminating manual test writing.
+  \item \textbf{Built a code generation engine} using Jinja templates that converts page metadata into pytest-compatible regression scripts with Page Object Model classes for every discovered page.
+  \item \textbf{Designed and dockerized 3 microservices} -- Recorder (Playwright codegen), MCP Service (AI agent + test generation), and Execution Service (isolated runner) -- saving 100+ team-hours weekly and cutting QA costs by \$230K/year.
 \end{itemize}
 
 \project{AI-Powered IVR Automation -- Cotiviti}{Java, Python, LangGraph, AWS Bedrock, Transcribe, DynamoDB, Lambda, SQS, KMS, Twilio}
+\\[2pt]
+{\small\textit{Cotiviti's Medicare IVR verification ran on legacy Jabber VMs, requiring a human to manually review and update navigation paths every morning. The team migrated to a fully serverless, horizontally scalable AWS architecture and introduced an AI agent that autonomously discovers the correct IVR path daily, eliminating the manual review step entirely.}}
 \begin{itemize}
-  \item \textbf{Designed an AI pathfinding workflow using LangGraph and AWS Bedrock} that autonomously navigates Medicare's IVR system daily -- recording calls via Twilio, transcribing with \textbf{AWS Transcribe}, and mapping the correct DTMF navigation path to \textbf{DynamoDB} as the source of truth for \textbf{200,000+ daily production calls}.
-  \item \textbf{Built a mock Medicare IVR simulator} in Java as a regression testing harness, validating AI agent accuracy against simulated IVR decision trees before production deployment.
-  \item \textbf{Configured the AWS CI/CD pipeline} (CodeCommit, CodeBuild, CodePipeline, CodeDeploy) with \textbf{KMS-encrypted PII handling} across all environments.
-  \item Part of a \textbf{cross-functional team} that saved \textbf{730+ engineer-hours annually} and cut infrastructure costs by \textbf{\~{}60\%} through serverless auto-scaling, with an operations dashboard for regulatory oversight.
+  \item \textbf{Designed an AI pathfinding workflow with LangGraph and AWS Bedrock} that navigates Medicare's IVR daily -- recording calls via Twilio, transcribing with AWS Transcribe, and writing the correct DTMF path to DynamoDB for 200,000+ daily production calls.
+  \item \textbf{Built a mock Medicare IVR simulator} in Java as a regression harness, validating AI agent accuracy against simulated decision trees before production deployment.
+  \item \textbf{Configured the AWS CI/CD pipeline} (CodePipeline) with KMS-encrypted PII handling across all environments.
+  \item \textbf{Part of a cross-functional team} that saved 730+ engineer-hours annually and cut infrastructure costs by $\sim$60\% through serverless auto-scaling.
 \end{itemize}
 
 \divider
@@ -118,9 +130,9 @@ APIs \& Security & RESTful APIs, OpenAPI/Swagger, OAuth 2.0, JWT, MSAL, JWKS, SS
 
 \project{Energy-Efficient LLM Inference and Carbon-Aware Optimization}{Python, PyTorch, TensorFlow, Hugging Face, NumPy, Pandas}
 \begin{itemize}
-  \item Conducted applied research on \textbf{LLM fine-tuning, model evaluation, and performance tuning} by benchmarking \textbf{parameter-efficient fine-tuning (PEFT)} techniques -- including \textbf{LoRA}, \textbf{knowledge distillation}, and \textbf{post-training quantization (4-bit/8-bit)} -- on GPT-2 across multiple task configurations, measuring GPU energy consumption and carbon emissions.
-  \item Achieved a \textbf{19.8\% reduction in CO2 emissions} with only a \textbf{6\% increase in perplexity} using 8-bit quantization, demonstrating that significant energy savings are attainable with minimal degradation in language modeling quality.
-  \item Demonstrated a \textbf{45.2\% emissions reduction} by combining distillation with quantization, quantifying the accuracy-efficiency trade-off curve to identify viable deployment configurations for resource-constrained and carbon-aware inference environments.
+  \item \textbf{Benchmarked parameter-efficient fine-tuning (PEFT) techniques} -- LoRA, knowledge distillation, and post-training quantization (4-bit/8-bit) -- on GPT-2, measuring GPU energy consumption and carbon emissions across task configurations.
+  \item \textbf{Achieved 19.8\% CO2 reduction} with only 6\% perplexity increase using 8-bit quantization, demonstrating significant energy savings with minimal quality degradation.
+  \item \textbf{Demonstrated 45.2\% emissions reduction} by combining distillation with quantization, mapping the accuracy-efficiency trade-off curve for carbon-aware deployment.
 \end{itemize}
 
 \divider
@@ -129,9 +141,9 @@ APIs \& Security & RESTful APIs, OpenAPI/Swagger, OAuth 2.0, JWT, MSAL, JWKS, SS
 
 \project{Flable Digital Assistant}{Python, LangChain, OpenAI, PostgreSQL, FastAPI, Docker, Jenkins, GitLab}
 \begin{itemize}
-  \item Built a \textbf{LangChain-based conversational AI} integrated with \textbf{OpenAI} that classifies user intent using \textbf{NLP techniques (transformer-based embeddings)}, maps queries to structured data categories in \textbf{PostgreSQL}, and generates natural-language responses grounded in real database results.
-  \item Developed an \textbf{on-the-fly data visualization engine} that dynamically queries PostgreSQL, renders chart images from the returned data, and delivers them inline through the \textbf{Telegram bot interface} -- giving non-technical users instant access to business analytics without dashboards or manual reporting.
-  \item Deployed the full stack (\textbf{FastAPI} backend + Telegram bot frontend) using \textbf{Docker} containers with \textbf{GitLab CI/CD} and \textbf{Jenkins} pipelines, reducing client's weekly analysis time by \textbf{60\%}.
+  \item \textbf{Built a LangChain conversational AI with OpenAI} that classifies user intent via transformer embeddings, maps queries to PostgreSQL data categories, and generates natural-language responses grounded in real results.
+  \item \textbf{Developed an on-the-fly visualization engine} that dynamically queries PostgreSQL, renders charts, and delivers them inline via Telegram -- giving non-technical users instant access to analytics.
+  \item \textbf{Deployed the full stack} (FastAPI backend + Telegram bot) using Docker with GitLab CI/CD and Jenkins pipelines, reducing client's weekly analysis time by 60\%.
 \end{itemize}
 
 \end{rSection}
@@ -154,7 +166,7 @@ APIs \& Security & RESTful APIs, OpenAPI/Swagger, OAuth 2.0, JWT, MSAL, JWKS, SS
 \begin{rSection}{Education}
 
 \textbf{University at Buffalo, The State University of New York} \hfill Buffalo, New York \\
-Master of Science, Computer Science, CGPA: 3.7/4 \hfill 2023 -- 2025 \\
+Master of Science, Computer Science, CGPA: 3.7/4 \hfill Aug 2023 -- Dec 2024 \\
 \textit{Coursework: Data Intensive Computing, Computer Vision, Machine Learning, Deep Learning}
 
 \end{rSection}

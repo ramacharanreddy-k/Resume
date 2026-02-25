@@ -1,9 +1,9 @@
-\ProvidesClass{resume}[2024/01/01 v1.0 Resume class]
+\ProvidesClass{resume}[2024/01/01 v1.1 Resume class]
 
 \LoadClass[10pt,a4paper]{article}
 
 \usepackage{lmodern}
-\renewcommand{\normalsize}{\fontsize{10.5}{12.5}\selectfont}
+\renewcommand{\normalsize}{\fontsize{10}{12}\selectfont}
 \normalsize
 
 \usepackage{array}
@@ -73,7 +73,7 @@
   {\MakeUppercase{\textbf{#1}}}
   \vspace{2pt}
   \hrule
-  \vspace{4pt}
+  \vspace{2pt}
 }{
   \vspace{2pt}
 }
