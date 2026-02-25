@@ -1,151 +1,162 @@
-\documentclass[11pt,a4paper,sans]{resume}
-\usepackage[left=0.2in,top=0.2in,right=0.3in,bottom=0.3in]{geometry}
+\documentclass{resume}
+\usepackage[left=0.3in,top=0.25in,right=0.3in,bottom=0.25in]{geometry}
 \usepackage{hyperref}
 \usepackage{fontawesome5}
-\usepackage{verbatim}
-\usepackage{amsmath} 
-
-% Add these lines to reduce space between items and customize bullet points
+\usepackage{xcolor}
 \usepackage{enumitem}
-\setlist[itemize]{noitemsep, topsep=0pt, parsep=0pt, partopsep=0pt, leftmargin=*}
-\renewcommand{\labelitemi}{$\bullet$}
 
-% Reduce paragraph spacing
-\parskip=0pt
+\setlist[itemize]{noitemsep, topsep=2pt, parsep=0pt, partopsep=0pt, leftmargin=1.2em}
+\renewcommand{\labelitemi}{\small$\bullet$}
+
+\definecolor{accent}{HTML}{2B579A}
+\definecolor{techgray}{HTML}{333333}
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=black,
-    filecolor=black,
-    urlcolor=black,
+    linkcolor=accent,
+    filecolor=accent,
+    urlcolor=accent,
+}
+
+% Reusable commands for uniform formatting
+\newcommand{\employer}[3]{%
+  \textbf{#1} \hfill #2 \enspace$\mid$\enspace #3%
+}
+\newcommand{\project}[2]{%
+  \vspace{5pt}%
+  \textbf{#1}\\[1pt]%
+  {\small\textcolor{techgray}{#2}}%
+}
+\newcommand{\divider}{%
+  \vspace{6pt}%
+  \noindent\textcolor{techgray}{\rule{\linewidth}{0.3pt}}%
+  \vspace{3pt}%
 }
 
 \name{Ramacharan Reddy Kasireddy}
 \address{
     {\small
-    ramachar@buffalo.edu \quad
-    +1 716-292-6481 \quad
-    www.linkedin.com/in/ramacharanreddy-k/ \quad
-    https://github.com/ramacharanreddy-k 
+    \faEnvelope\ \href{mailto:kramacharanreddy@gmail.com}{kramacharanreddy@gmail.com}
+    \enspace$\cdot$\enspace
+    \faPhone\ +1 716-292-6481
+    \enspace$\cdot$\enspace
+    \faLinkedin\ \href{https://www.linkedin.com/in/ramacharanreddy-k/}{ramacharanreddy-k}
+    \enspace$\cdot$\enspace
+    \faGithub\ \href{https://github.com/ramacharanreddy-k}{ramacharanreddy-k}
     }
 }
 
 \begin{document}
-\vspace{0.75em}
-\noindent\rule{\linewidth}{0.2pt}
-\vspace{0.2em}
-An aspiring data scientist with proficiency in Machine Learning and AI and a strong passion for data-driven problem-solving, equipped with expertise in SQL, Python, statistics, data analysis, and data engineering.
 
+\vspace{0.3em}
+AI Engineer with 2+ years of experience designing and delivering production AI systems -- multi-agent LangGraph workflows, RAG pipelines with hallucination reduction, vector search, and data ingestion engines -- across both AWS and Azure, with end-to-end ownership from Terraform infrastructure to client-facing delivery.
 
-\vspace{0.75em}
-\begin{rSection}{SKILLS}
-\vspace{0.75em}
+%==============================================================================
+% SKILLS
+%==============================================================================
+\begin{rSection}{Skills}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Programming: & Python, SQL, R, Java, JavaScript \\
-Data Science: & PySpark, MLFlow, Data Visualization, Data Transformation, Data Modelling\\
-AI/ML: & ML, Deep Learning, NLP, Scikit-learn, PyTorch, OpenAI, Langchain, LlamaIndex, Pinecone \\
-Cloud \& Databases: & Azure, Databricks, AWS (SageMaker, SQS, Lambda, DynamoDB), MongoDB, PostgreSQL \\
-CI/CD Frameworks: & Git, GitLab, Jenkins, Docker, Terraform \\
-Data Analysis: & Power BI, Pandas, NumPy, Matplotlib, Seaborn, Statistial Time Series Regression Analysis \\
-Web Technologies: & HTML5, CSS, Figma, Bootstrap, Fast API, Django, Flask, Streamlit
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{3ex}} p{15.2cm} }
+AI/ML \& LLMs & LangChain, LangGraph, MCP, RAG (hybrid k-NN + BM25), Prompt Engineering, Fine-Tuning, Multi-Agent Systems, ReAct, Tool Calling, Structured Outputs, Langfuse \\[2pt]
+NLP & Tokenization, Transformer Embeddings, Conversational AI, Semantic Search, Intent Classification, Text Generation \\[2pt]
+LLM Platforms & Azure AI Foundry, Azure OpenAI (GPT-4, Embeddings), AWS Bedrock (Claude, Titan Embeddings), Google Gemini \\[2pt]
+Deep Learning & PyTorch, TensorFlow, Hugging Face Transformers, LoRA, PEFT, QLoRA, Quantization, Distillation \\[2pt]
+Programming & Python, SQL, JavaScript, Java, React, FastAPI, Uvicorn, Pydantic, Jinja, Playwright, pytest \\[2pt]
+Databases & PostgreSQL, Cosmos DB, MongoDB, OpenSearch, SQLAlchemy \\[2pt]
+AWS & Bedrock, OpenSearch, EKS, ECR, Lambda, SQS, S3, Transcribe, DynamoDB, CodePipeline, KMS, IAM (IRSA) \\[2pt]
+Azure & OpenAI Service, Cosmos DB, AKS, ACR, Key Vault, Blob Storage, Entra ID, Managed Identity, Logic Apps \\[2pt]
+DevOps \& Agile & Docker, Kubernetes, Helm, Terraform, Airflow, Git, GitHub Actions, Jenkins, GitLab CI/CD, Agile/Scrum \\[2pt]
+AI-Assisted Dev & GitHub Copilot, Cursor, Claude Code \\[2pt]
+APIs \& Security & RESTful APIs, OpenAPI/Swagger, OAuth 2.0, JWT, MSAL, JWKS, SSE, WebSockets \\
 \end{tabular}
+
 \end{rSection}
 
-\vspace{0.75em}
-\begin{rSection}{Certifications}
-\vspace{0.75em}
+%==============================================================================
+% WORK EXPERIENCE
+%==============================================================================
+\begin{rSection}{Work Experience}
 
+\employer{Feuji INC}{AI Engineer}{Aug 2024 -- Present}
+
+\project{Customer Analytics AI -- PLZ Corp}{Python, FastAPI, LangGraph, Azure OpenAI, Azure AI Foundry, Cosmos DB, PostgreSQL, Terraform, React}
 \begin{itemize}
-    \item AWS Certified Cloud Practitioner (Amazon Web Services)
+  \item \textbf{Architected a full-stack AI analytics platform} across 4 microservices (data engine, SSO gateway, conversational agent, React SPA frontend) deployed on AKS, \textbf{eliminating 48 hours/week of manual analysis} and \textbf{saving \$150K/year} in equivalent headcount.
+  \item \textbf{Engineered an AI agent using LangGraph and Azure OpenAI} with 20 specialized tools and a 7-layer middleware stack, backed by dual-domain RAG over Cosmos DB vector search (DiskANN, 1536-dim embeddings) \textbf{grounding all responses in verified data to reduce hallucinations}, augmented by summarization and short-term memory for conversational coherence.
+  \item \textbf{Built an 8-stage async data pipeline} that ingests structured and unstructured data, transforms through a parse-chunk-embed-index workflow, and persists to a \textbf{12-table PostgreSQL warehouse} and a \textbf{Cosmos DB vector store}.
+  \item \textbf{Designed a centralized SSO gateway} using FastAPI RESTful APIs and MSAL with OAuth2 authorization code flow, Azure AD group-based access control, JWKS S2S token validation, and zero hardcoded secrets via Key Vault and Managed Identity.
+  \item \textbf{Provisioned the entire Azure environment using Terraform} across 7 modules with passwordless RBAC throughout, covering compute, data, AI, identity, storage, scheduling, and communication services.
 \end{itemize}
+
+\project{Ask the Prospect (ATP) -- TriNet}{Python, FastAPI, LangGraph, AWS Bedrock, OpenSearch, Aurora, Langfuse, Airflow, EKS}
+\begin{itemize}
+  \item \textbf{Built a multi-mode LangGraph agent} powering 4 capabilities -- RAG chatbot (dual-index: training docs + Gong call transcripts) with \textbf{memory continuity using short-term and long-term memory} via LangGraph PG checkpointer and store, persona-based sales role-play with AI coaching, analytics chat with text-to-OpenSearch query generation, and automated Jeopardy question generation.
+  \item \textbf{Engineered a sales analytics pipeline} where LLM enriches each Gong call transcript with derived columns (win/loss, objections, competition mentions), then serves aggregate queries by generating OpenSearch queries from natural language via text-to-schema mapping.
+  \item \textbf{Integrated Langfuse for full observability and bias detection} across all agent interactions, using \textbf{LLM-as-judge evaluations} for output quality scoring alongside trace-level debugging, latency monitoring, and cost tracking across every LLM call and tool execution in production.
+  \item \textbf{Served as solution architect and client-facing lead}, owning the end-to-end technical vision across 4 microservices and 2 Airflow-orchestrated data pipelines deployed on EKS.
+\end{itemize}
+
+\project{ReQon -- Automated Testing Tool}{Python, LangChain, LangGraph, Google Gemini, Playwright MCP, Aurora PostgreSQL, Docker, pytest}
+\begin{itemize}
+  \item \textbf{Engineered a LangGraph agent with Playwright MCP} that replays a user-recorded browser flow, autonomously navigates every page multiple times, and extracts locators, identifiers, functional elements, and behavioral data -- storing the full application map in S3 and Aurora PostgreSQL.
+  \item \textbf{Automated the entire QA authoring workflow} -- from captured browser behavior the agent generates structured test cases in Aurora PG, executes them via Playwright MCP, and outputs verified pass/fail results, eliminating manual test case writing.
+  \item \textbf{Built a code generation engine} using Jinja templates that converts captured page metadata into \textbf{pytest-compatible regression scripts} with \textbf{Page Object Model classes} for every page discovered, producing a ready-to-run test suite from a single recording.
+  \item \textbf{Designed and dockerized 3 microservices} -- Recorder (Playwright codegen capture), MCP Service (AI agent, knowledge extraction, test and script generation), and Execution Service (isolated regression runner) -- saving \textbf{100+ team-hours weekly} and cutting QA costs by an estimated \textbf{\$230K/year}.
+\end{itemize}
+
+\project{AI-Powered IVR Automation -- Cotiviti}{Java, Python, LangGraph, AWS Bedrock, Transcribe, DynamoDB, Lambda, SQS, KMS, Twilio}
+\begin{itemize}
+  \item \textbf{Designed an AI pathfinding workflow using LangGraph and AWS Bedrock} that autonomously navigates Medicare's IVR system daily -- recording calls via Twilio, transcribing with \textbf{AWS Transcribe}, and mapping the correct DTMF navigation path to \textbf{DynamoDB} as the source of truth for \textbf{200,000+ daily production calls}.
+  \item \textbf{Built a mock Medicare IVR simulator} in Java as a regression testing harness, validating AI agent accuracy against simulated IVR decision trees before production deployment.
+  \item \textbf{Configured the AWS CI/CD pipeline} (CodeCommit, CodeBuild, CodePipeline, CodeDeploy) with \textbf{KMS-encrypted PII handling} across all environments.
+  \item Part of a \textbf{cross-functional team} that saved \textbf{730+ engineer-hours annually} and cut infrastructure costs by \textbf{\~{}60\%} through serverless auto-scaling, with an operations dashboard for regulatory oversight.
+\end{itemize}
+
+\divider
+
+\employer{University at Buffalo}{AI Research Assistant}{Jan 2024 -- May 2024}
+
+\project{Energy-Efficient LLM Inference and Carbon-Aware Optimization}{Python, PyTorch, TensorFlow, Hugging Face, NumPy, Pandas}
+\begin{itemize}
+  \item Conducted applied research on \textbf{LLM fine-tuning, model evaluation, and performance tuning} by benchmarking \textbf{parameter-efficient fine-tuning (PEFT)} techniques -- including \textbf{LoRA}, \textbf{knowledge distillation}, and \textbf{post-training quantization (4-bit/8-bit)} -- on GPT-2 across multiple task configurations, measuring GPU energy consumption and carbon emissions.
+  \item Achieved a \textbf{19.8\% reduction in CO2 emissions} with only a \textbf{6\% increase in perplexity} using 8-bit quantization, demonstrating that significant energy savings are attainable with minimal degradation in language modeling quality.
+  \item Demonstrated a \textbf{45.2\% emissions reduction} by combining distillation with quantization, quantifying the accuracy-efficiency trade-off curve to identify viable deployment configurations for resource-constrained and carbon-aware inference environments.
+\end{itemize}
+
+\divider
+
+\employer{Flable AI}{Machine Learning Engineer}{Mar 2023 -- Aug 2023}
+
+\project{Flable Digital Assistant}{Python, LangChain, OpenAI, PostgreSQL, FastAPI, Docker, Jenkins, GitLab}
+\begin{itemize}
+  \item Built a \textbf{LangChain-based conversational AI} integrated with \textbf{OpenAI} that classifies user intent using \textbf{NLP techniques (transformer-based embeddings)}, maps queries to structured data categories in \textbf{PostgreSQL}, and generates natural-language responses grounded in real database results.
+  \item Developed an \textbf{on-the-fly data visualization engine} that dynamically queries PostgreSQL, renders chart images from the returned data, and delivers them inline through the \textbf{Telegram bot interface} -- giving non-technical users instant access to business analytics without dashboards or manual reporting.
+  \item Deployed the full stack (\textbf{FastAPI} backend + Telegram bot frontend) using \textbf{Docker} containers with \textbf{GitLab CI/CD} and \textbf{Jenkins} pipelines, reducing client's weekly analysis time by \textbf{60\%}.
+\end{itemize}
+
 \end{rSection}
 
-\vspace{0.75em}
-\begin{rSection}{WORK EXPERIENCE}
-\vspace{0.75em}
+%==============================================================================
+% OPEN SOURCE
+%==============================================================================
+\begin{rSection}{Open Source}
 
-{\bf Feuji INC} {\em Data Science and Analytics Intern} \hfill Aug 2024 -- Present \\
-\textbf{AI-Powered IVR Automation} [Python, AWS Lambda, AWS Sagemaker, AWS DynamoDB, Langchain, OpenAI, Twilio] \\
-\text{As a data science intern I integrated OpenAI \& LangChain to optimize the Interactive Voice Response(IVR) system.}
-\vspace{0.75em}
+\textbf{langgraph-checkpoint-cosmos} \enspace\textcolor{techgray}{$\mid$}\enspace \href{https://github.com/LangModule/checkpoint-cosmos}{\faGithub\ github.com/LangModule/checkpoint-cosmos}
 \begin{itemize}
-  \item Leveraged \textbf{OpenAI} to fully automate \textbf{IVR path} optimization, eliminating manual updates by \textbf{100\%}.
-  \item Optimized Call automation system helped reduce the call duration by \textbf{60\%} across \textbf{200,000+ daily verifications}.
-  \item Built scalable, \textbf{serverless solution} with \textbf{AWS Lambda, DynamoDB, SQS} achieving \textbf{99.9\% uptime}.
-  \item Adapted industry best practice in \textbf{data governance} using \textbf{AWS KMS} for secure handling of sensitive data.
+  \item Published a LangGraph checkpoint saver for Azure Cosmos DB with sync/async support, tip-document optimization, transactional consistency, and DefaultAzureCredential keyless authentication.
 \end{itemize}
 
-\vspace{0.75em}
-{\textbf{MedicalBot}} [Python, LangChain, OpenAI, Pinecone, FastAPI, Streamlit]
-\vspace{0.75em}
-\begin{itemize}
-  \item Designed an advanced \textbf{medical Q\&A system} using \textbf{custom chunking} for document segmentation and \textbf{GPT-4} for context-rich medical transcription summaries, resulting in a \textbf{30\% improvement} in information retrieval accuracy.
-  \item Enhanced retrieval precision by \textbf{40\%} by implementing a \textbf{hybrid method} combining \textbf{vector similarity search}, \textbf{TF-IDF keyword matching}, and a \textbf{custom re-ranking algorithm}.
-  \item Architected a scalable system with a \textbf{FastAPI backend} and \textbf{Streamlit frontend}, integrating \textbf{LangChain components} for query classification and an \textbf{RAG pipeline}.
-\end{itemize}
-
-\vspace{0.75em}
-\noindent\rule{\linewidth}{0.4pt}
-{\bf Flable AI} {\em Data Science Intern} \hfill Mar 2023 -- Dec 2023\\
-{\textbf{Data Insights for Clients}} [Azure, Databricks, Python, Spark, PowerBI, MLflow, Stats models, PostgreSQL, Jenkins]
-\vspace{0.75em}
-\begin{itemize}
-  \item Created \textbf{Python} script for \textbf{traffic analysis}, utilizing \textbf{Scikit-learn} for data preprocessing and feature extraction.
-  \item Developed interactive \textbf{PowerBI} reports showcasing user engagement metrics, powered by real-time \textbf{PostgreSQL} data.
-  \item Leveraged \textbf{Azure dataflow}, \textbf{Jenkins CI/CD} with automated testing, achieving \textbf{75\% reduction} in processing time.
-\end{itemize}
-
-\vspace{0.75em}
-{\textbf{Flable Digital Assistant}} [Python, Pandas, ChatGPT, NLP, Telegram Bot, Fast API, PostgreSQL, MongoDB]
-\vspace{0.75em}
-\begin{itemize}
-  \item Led development of the Flable Digital Assistant employing \textbf{Telebot} library, \textbf{ChatGPT}, and internal \textbf{chart builder API}.
-  \item Developed user-friendly interface for quick access to \textbf{strategy recommendations}, \textbf{web and business analytics}.
-  \item Implemented \textbf{automated data review and reporting}, reducing client's weekly analysis time by up to \textbf{60\%}.
-\end{itemize}
-
-\vspace{0.75em}
-\noindent\rule{\linewidth}{0.4pt}
-{\bf AI Research Assistant} University at Buffalo \hfill Jan 2024 - May 2024 \\
-{\textbf{Carbon Emission Reduction Techniques}} [Python, PyTorch, TensorFlow, Scikit-Learn, NumPy, Pandas]\\
-During AI research I was able to learn how to achieve energy efficiency while maintaining the LLM's performance.
-\vspace{0.75em}
-\begin{itemize}
-  \item Researched GPT-2's \textbf{energy efficiency} \& \textbf{carbon reduction} using \textbf{quantization}, \textbf{distillation}, \textbf{low-rank factorization}.
-  \item Optimized GPT-2 efficiency: \textbf{19.8\% CO2 reduction} with only \textbf{6\% perplexity increase} via quantization.
-  \item Achieved \textbf{45.2\% emissions reduction} combining distillation and quantization, demonstrating significant carbon savings at the cost of substantial performance degradation by \textbf{57.4\%}, suitable for extreme efficiency scenarios.
-\end{itemize}
 \end{rSection}
 
-\vspace{0.75em}
-\begin{rSection}{EDUCATION}
-\vspace{0.75em}
-{\bf University at Buffalo, The State University of New York} \hfill Buffalo, New York \\
-Master of Science, Computer Science, CGPA: 3.7/4 \hfill 2023 -- Present \\
-{\em Coursework: Data Intensive Computing, Computer Vision, Machine Learning, Deep Learning}
+%==============================================================================
+% EDUCATION
+%==============================================================================
+\begin{rSection}{Education}
 
-\vspace{0.75em}
-{\bf Vellore Institute of Technology} \hfill Chennai, India \\
-Bachelor of Technology, Computer Science and Engineering, CGPA: 8.42/10 \hfill July 2019 -- May 2023 \\
-{\em Coursework: Data Analytics, Data Visualization, Natural Language Processing, Artificial Intelligence}
+\textbf{University at Buffalo, The State University of New York} \hfill Buffalo, New York \\
+Master of Science, Computer Science, CGPA: 3.7/4 \hfill 2023 -- 2025 \\
+\textit{Coursework: Data Intensive Computing, Computer Vision, Machine Learning, Deep Learning}
+
 \end{rSection}
 
-\vspace{0.75em}
-\begin{rSection}{ACADEMIC PROJECTS}
-\vspace{0.75em}
-\vspace{0.75em}
-{\textbf{Mathematical Formula to LaTeX Code Conversion}} [Python, PyTorch, Vision Transformers]
-\begin{itemize}
-  \item Engineered a \textbf{deep learning system} utilizing \textbf{Vision Transformer architecture} to convert images containing mathematical formulas into LaTeX code, achieving a \textbf{BLEU score of 0.72} on the Im2LaTeX dataset.
-\end{itemize}
-
-\vspace{0.75em}
-{\textbf{Company Bankruptcy Prediction}} [Python, Pandas, NumPy, Seaborn, Scikit-Learn, Jupyter Notebook]
-\begin{itemize}
-  \item Developed machine learning model for bankruptcy prediction, utilized \textbf{SMOTE} for oversampling to address \textbf{data-imbalance}.
-  \item Applied ensemble methods (\textbf{logistic regression}, \textbf{random forest}, \textbf{XGBoost}), achieving \textbf{82.04\% accuracy}.
-  \item Utilized \textbf{CatBoost} to identify and visualize top 20 influential features, enhancing model interpretability.
-\end{itemize}
-\end{rSection}
 \end{document}
